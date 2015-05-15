@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImgHash.Net", "ImgHash.Net\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashImg", "HashImg\HashImg.csproj", "{1A4CC19A-0108-4863-BCE9-B125CF4886D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImgDup.Net", "ImgDup.Net\ImgDup.Net.csproj", "{2BBE5080-9661-4E51-B666-3D3E358D5B7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1A4CC19A-0108-4863-BCE9-B125CF4886D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A4CC19A-0108-4863-BCE9-B125CF4886D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A4CC19A-0108-4863-BCE9-B125CF4886D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBE5080-9661-4E51-B666-3D3E358D5B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBE5080-9661-4E51-B666-3D3E358D5B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBE5080-9661-4E51-B666-3D3E358D5B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBE5080-9661-4E51-B666-3D3E358D5B7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

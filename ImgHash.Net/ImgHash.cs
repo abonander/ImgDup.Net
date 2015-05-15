@@ -46,7 +46,7 @@ namespace ImgHash
         struct ExternHashImage { }
 
         [DllImport("img_hash_extern.dll", EntryPoint="get_hash_data_alloc_size")]
-        unsafe static extern UIntPtr get_hash_data_alloc_size(uint hashSize);
+        unsafe static extern UIntPtr get_hash_data_alloc_size(ExternHashType hashType, uint hashSize);
         [DllImport("img_hash_extern.dll", EntryPoint = "create_hash_image")]
         unsafe static extern ExternHashImage* create_hash_image(byte* img_data, uint width, uint height, int channels);
         [DllImport("img_hash_extern.dll", EntryPoint = "create_hash")]
@@ -86,13 +86,26 @@ namespace ImgHash
         }
         #endregion
 
+        /// <summary>
+        /// Create a hash from the given <see cref="Bitmap" /> using the given hash type and size.
+        /// 
+        /// Note: if <c>hashType</c> is given as <see cref="ExternHashType.DoubleGradient" />, then the hash will be double the length.
+        /// </summary>
+        /// <param name="img">The image to hash.</param>
+        /// <param name="hashType">The type of hash to perform.</param>
+        /// <param name="hashSize">The size of the hash to use. (The hash length will be <c>hashSize * hashSize</c>)</param>
+        /// <returns>A new created ImgHash</returns>
         public static ImgHash Create(Bitmap img, ExternHashType hashType, uint hashSize)
         {
             BitArray hashData = new BitArray(CreateHash(img, hashType, hashSize));
-
             return new ImgHash(hashData, hashType, hashSize);
         }
 
+        /// <summary>
+        /// Get the Hamming distance between the bits of this hash and <c>other</c> as an <c>int</c>.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int Dist(ImgHash other) 
         {
             var xor = this.hashData.Xor(other.hashData);
@@ -106,7 +119,8 @@ namespace ImgHash
 
         private static unsafe byte[] CreateHash(Bitmap img, ExternHashType hashType, uint hashSize)
         {
-            var hashData = new byte[(int) get_hash_data_alloc_size(hashSize)];
+            int allocSize = (int) get_hash_data_alloc_size(hashType, hashSize);
+            var hashData = new byte[allocSize];
 
             ExternHashImage* hashImage = CreateHashImage(img);
 

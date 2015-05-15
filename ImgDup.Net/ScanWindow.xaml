@@ -1,0 +1,30 @@
+﻿<Window x:Class="ImgDup.Net.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ImgDup.Net (Search for Images)" Height="147.6" Width="401">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+            
+        <Label Content="Search Folder:" Grid.Row="0" Grid.Column="0" Margin="5, 5, 5, 5"/>
+        <TextBox Name="SearchFolder" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0, 5, 0, 5"/>
+        <Button Grid.Row="0" Grid.Column="3" Content="Browse" Click="BrowseForSearchFolder" Margin="5, 5, 5, 5"/>
+        
+        <Label Content="Search extensions:" Grid.Row="1" Grid.Column="0" Margin="5, 5, 5, 5" />
+        <TextBox Name="SearchExtensions" Text="jpg,jpeg,png,bmp,gif" Grid.Row="1" Grid.Column="1" Margin="0, 5, 0, 5" />
+        <Label Content="Search Subdirectories:" Grid.Row="1" Grid.Column="2" Margin="5, 5, 5, 5" />
+        <CheckBox Name="SearchRecurse" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+        
+        <Button Content="Search for Images" Margin="64.4,11.2,10.4,-34.4" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2" Click="BeginSearch"/>
+        
+    </Grid>
+</Window>
